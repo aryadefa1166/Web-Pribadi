@@ -17,535 +17,296 @@
             --card-bg: rgba(255, 255, 255, 0.05);
             --border-color: rgba(255, 255, 255, 0.1);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3 {
-            font-weight: 600;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(13, 12, 34, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: top 0.3s;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .nav-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            margin-left: 25px;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-text);
-        }
-
-        .cta-button {
-            background: var(--accent-color-1);
-            color: var(--primary-text);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #5629e6;
-        }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-            padding-top: 80px; 
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-text .about-me {
-            font-size: 1.1rem;
-            color: var(--secondary-text);
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
-
-        .stats {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            background: linear-gradient(90deg, var(--accent-color-2), #35ffa9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .stat-item p {
-            color: var(--secondary-text);
-        }
-
-        .hero-image {
-            flex: 0.8;
-            position: relative;
-        }
-
-        .hero-image .image-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 15px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            display: block;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-        .section-title span {
-            background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hobbies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .hobby-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .hobby-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(106, 53, 255, 0.3);
-        }
-
-        #schedule {
-             padding-bottom: 20px; 
-        }
-        
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .day-group {
-            margin-bottom: 40px;
-        }
-        
-        .day-title {
-            font-size: 1.8rem;
-            color: var(--primary-text);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--accent-color-1);
-            padding-bottom: 10px;
-        }
-
-        .course-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease; 
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(53, 162, 255, 0.3);
-        }
-
-        .course-card h4 {
-            font-size: 1.4rem;
-            color: var(--primary-text);
-        }
-
-        .course-info {
-            display: flex;
-            justify-content: space-between;
-            color: var(--secondary-text);
-        }
-        
-        .sks-badge {
-            background: var(--accent-color-2);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--bg-color);
-        }
-
-        .motto-section {
-            text-align: center;
-        }
-
-        .motto-box {
-            background: var(--card-bg);
-            border-left: 4px solid var(--accent-color-1);
-            padding: 40px;
-            border-radius: 15px;
-            display: inline-block;
-            max-width: 800px;
-        }
-        
-        .motto-box p {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--secondary-text);
-            line-height: 1.6;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 30px;
-            text-decoration: none;
-            color: var(--primary-text);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease; 
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(106, 53, 255, 0.3);
-        }
-
-        .contact-card svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--accent-color-2);
-        }
-
-        .contact-card span {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-       
-        .footer {
-            background-color: #080716;
-            padding: 50px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .footer .logo {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-text {
-            color: var(--secondary-text);
-            margin-bottom: 20px;
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.6, 0.2, 0.4, 1);
-        }
-        
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-color); color: var(--primary-text); overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-color-1); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5629e6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3 { font-weight: 600; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(13, 12, 34, 0.8); backdrop-filter: blur(10px); z-index: 1000; transition: top 0.3s; }
+        .logo { font-size: 1.5em; font-weight: 700; background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { color: var(--secondary-text); text-decoration: none; margin-left: 25px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-text); }
+        .cta-button { background: var(--accent-color-1); color: var(--primary-text); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.3s ease; }
+        .cta-button:hover { background: #5629e6; }
+        .hero { display: flex; align-items: center; justify-content: space-between; min-height: 100vh; padding-top: 80px; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text .about-me { font-size: 1.1rem; color: var(--secondary-text); max-width: 500px; margin-bottom: 30px; }
+        .stats { display: flex; gap: 30px; margin-bottom: 40px; }
+        .stat-item h3 { font-size: 2rem; background: linear-gradient(90deg, var(--accent-color-2), #35ffa9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-item p { color: var(--secondary-text); }
+        .hero-image { flex: 0.8; position: relative; }
+        .hero-image .image-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 15px; backdrop-filter: blur(5px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .hero-image img { width: 100%; height: auto; border-radius: 15px; display: block; }
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .section-title span { background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hobbies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .hobby-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 15px; text-align: center; font-size: 1.2rem; font-weight: 600; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hobby-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(106, 53, 255, 0.3); }
+        #schedule { padding-bottom: 20px; }
+        .schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .day-group { margin-bottom: 40px; }
+        .day-title { font-size: 1.8rem; color: var(--primary-text); margin-bottom: 20px; border-bottom: 2px solid var(--accent-color-1); padding-bottom: 10px; }
+        .course-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(53, 162, 255, 0.3); }
+        .course-card h4 { font-size: 1.4rem; color: var(--primary-text); }
+        .course-info { display: flex; justify-content: space-between; align-items: center; }
+        .sks-badge { background: var(--accent-color-2); padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; font-weight: 600; color: var(--bg-color); }
+        .motto-section { text-align: center; }
+        .motto-box { background: var(--card-bg); border-left: 4px solid var(--accent-color-1); padding: 40px; border-radius: 15px; display: inline-block; max-width: 800px; }
+        .motto-box p { font-size: 1.5rem; font-style: italic; color: var(--secondary-text); line-height: 1.6; }
+        .card-grid-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .contact-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; text-decoration: none; color: var(--primary-text); display: flex; flex-direction: column; align-items: center; gap: 15px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; flex-basis: 280px; }
+        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(106, 53, 255, 0.3); }
+        .contact-card svg { width: 40px; height: 40px; fill: var(--accent-color-2); }
+        .contact-card span { font-weight: 600; font-size: 1.1rem; }
+        .footer { background-color: #080716; padding: 50px 0; border-top: 1px solid var(--border-color); text-align: center; }
+        .footer .logo { font-size: 2rem; margin-bottom: 15px; }
+        .footer-text { color: var(--secondary-text); margin-bottom: 20px; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.6, 0.2, 0.4, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        #article-viewer { padding: 120px 20px 80px 20px; min-height: 100vh; }
+        .article-page { display: none; }
+        .article-container { max-width: 800px; margin: 0 auto; }
+        .article-container h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .article-container p { font-size: 1.1rem; line-height: 1.8; color: var(--primary-text); margin-bottom: 25px; text-align: justify; }
+        .article-container h3 { font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; background: linear-gradient(90deg, var(--accent-color-2), #35ffa9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+        .video-container { position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; border-radius: 15px; margin-top: 30px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; }
+        .back-button { display: inline-block; margin-bottom: 40px; color: var(--accent-color-2); text-decoration: none; font-weight: 600; }
+        .back-button:hover { text-decoration: underline; }
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-            }
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            .hero-text .about-me {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .stats {
-                justify-content: center;
-            }
-            .navbar {
-                flex-direction: column;
-                padding: 15px;
-            }
-            .nav-links {
-                margin-top: 15px;
-            }
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text .about-me { margin-left: auto; margin-right: auto; }
+            .stats { justify-content: center; }
+            .navbar { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; }
+            .article-container h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+    <div id="main-content">
+        <header class="navbar container">
+            <div class="logo">Aryadefazen</div>
+            <nav class="nav-links">
+                 <a href="#about">Tentang</a>
+                <a href="#hobbies">Hobi</a>
+                <a href="#motto">Motto</a>
+                <a href="#artikel">Artikel</a>
+                <a href="#contact">Kontak</a> 
+            </nav>
+            <a href="#schedule" class="cta-button">Jadwal</a>
+        </header>
 
-    <header class="navbar container">
-        <div class="logo">Aryadefazen</div> <nav class="nav-links">
-             <a href="#about">Tentang</a>
-            <a href="#hobbies">Hobi</a>
-            <a href="#motto">Motto</a>
-            <a href="#contact">Kontak</a> 
-        </nav>
-        <a href="#schedule" class="cta-button">Jadwal</a>
-    </header>
-
-    <main>
-        <section id="about" class="hero container">
-            <div class="hero-text">
-                <h1 class="reveal">Muhammad Aryadefa</h1>
-                <p class="about-me reveal" style="transition-delay: 100ms;">
-                    Mahasiswa Ilmu Komputer USU yang ambisius, kreatif, dan selalu bersemangat untuk mengeksplorasi ilmu dan pengalaman baru demi masa depan yang lebih baik.
-                </p>
-                <div class="stats reveal" style="transition-delay: 200ms;">
-                    <div class="stat-item">
-                        <h3>241401050</h3>
-                        <p>NIM</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Kom B</h3>
-                        <p>Kelas</p>
+        <main>
+            <section id="about" class="hero container">
+                <div class="hero-text">
+                    <h1 class="reveal">Muhammad Aryadefa</h1>
+                    <p class="about-me reveal" style="transition-delay: 100ms;">
+                        Mahasiswa Ilmu Komputer USU yang ambisius, kreatif, dan selalu bersemangat untuk mengeksplorasi ilmu dan pengalaman baru demi masa depan yang lebih baik.
+                    </p>
+                    <div class="stats reveal" style="transition-delay: 200ms;">
+                        <div class="stat-item">
+                            <h3>241401050</h3>
+                            <p>NIM</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Kom B</h3>
+                            <p>Kelas</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero-image reveal" style="transition-delay: 300ms;">
-                <div class="image-card">
-                    <img src="IMG_4754.jpeg" alt="Italian Trulli">
+                <div class="hero-image reveal" style="transition-delay: 300ms;">
+                    <div class="image-card">
+                        <img src="IMG_4754.jpeg" alt="Foto Profil Muhammad Aryadefa">
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="hobbies" class="section container">
-            <h2 class="section-title reveal"><span>Hobi</span> Saya</h2>
-            <div class="hobbies-grid">
-                <div class="hobby-card reveal">Nonton</div>
-                <div class="hobby-card reveal" style="transition-delay: 100ms;">Game</div>
-                <div class="hobby-card reveal" style="transition-delay: 200ms;">Ngoding</div>
-                <div class="hobby-card reveal" style="transition-delay: 300ms;">Jalan-jalan</div>
-                <div class="hobby-card reveal" style="transition-delay: 400ms;">Nyanyi</div>
-            </div>
-        </section>
-
-        <section id="motto" class="section motto-section container">
-             <h2 class="section-title reveal"><span>Motto</span> Saya</h2>
-             <div class="motto-box reveal">
-                <p>"Lukiskan ikhtiar, langitkan tawakal, dan takdir akan menyempurnakan sisa cerita indahnya."</p>
-             </div>
-        </section>
-
-        <section id="schedule" class="section container">
-            <h2 class="section-title reveal">Jadwal <span>Kuliah</span></h2>
+            </section>
             
-            <div class="day-group">
-                <h3 class="day-title reveal">SENIN</h3>
-                <div class="schedule-grid">
-                    <div class="course-card reveal">
-                        <h4>Grafika Komputer</h4>
-                        <div class="course-info">
-                            <span>08:50 - 10:30</span>
-                            <span class="sks-badge">2 SKS</span>
-                        </div>
-                    </div>
-                    <div class="course-card reveal" style="transition-delay: 100ms;">
-                        <h4>Desain Interaksi</h4>
-                        <div class="course-info">
-                            <span>10:30 - 12:10</span>
-                            <span class="sks-badge">2 SKS</span>
-                        </div>
+            <section id="hobbies" class="section container">
+                <h2 class="section-title reveal"><span>Hobi</span> Saya</h2>
+                <div class="hobbies-grid">
+                    <div class="hobby-card reveal">Nonton</div>
+                    <div class="hobby-card reveal" style="transition-delay: 100ms;">Game</div>
+                    <div class="hobby-card reveal" style="transition-delay: 200ms;">Ngoding</div>
+                    <div class="hobby-card reveal" style="transition-delay: 300ms;">Jalan-jalan</div>
+                    <div class="hobby-card reveal" style="transition-delay: 400ms;">Nyanyi</div>
+                </div>
+            </section>
+
+            <section id="motto" class="section motto-section container">
+                 <h2 class="section-title reveal"><span>Motto</span> Saya</h2>
+                 <div class="motto-box reveal">
+                    <p>"Lukiskan ikhtiar, langitkan tawakal, dan takdir akan menyempurnakan sisa cerita indahnya."</p>
+                 </div>
+            </section>
+
+            <section id="schedule" class="section container">
+                <h2 class="section-title reveal"><span>Jadwal</span> Kuliah</h2>
+                <div class="day-group">
+                    <h3 class="day-title reveal">SENIN</h3>
+                    <div class="schedule-grid">
+                        <div class="course-card reveal"><h4>Grafika Komputer</h4><div class="course-info"><span>08:50 - 10:30</span><span class="sks-badge">2 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 100ms;"><h4>Desain Interaksi</h4><div class="course-info"><span>10:30 - 12:10</span><span class="sks-badge">2 SKS</span></div></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="day-group">
-                <h3 class="day-title reveal">SELASA</h3>
-                <div class="schedule-grid" style="grid-template-columns: 1fr;"> 
-                    <div class="course-card reveal">
-                        <h4>IELTS Preparation</h4>
-                        <div class="course-info">
-                            <span>08:20 - 10:00</span>
-                            <span class="sks-badge">2 SKS</span>
-                        </div>
+                <div class="day-group">
+                    <h3 class="day-title reveal">SELASA</h3>
+                    <div class="schedule-grid" style="grid-template-columns: 1fr;"><div class="course-card reveal"><h4>IELTS Preparation</h4><div class="course-info"><span>08:20 - 10:00</span><span class="sks-badge">2 SKS</span></div></div></div>
+                </div>
+                <div class="day-group">
+                    <h3 class="day-title reveal">RABU</h3>
+                    <div class="schedule-grid">
+                        <div class="course-card reveal"><h4>Praktikum Pemrograman Web</h4><div class="course-info"><span>08:50 - 10:30</span><span class="sks-badge">1 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 100ms;"><h4>Basis Data</h4><div class="course-info"><span>10:30 - 13:00</span><span class="sks-badge">3 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 200ms;"><h4>Wirausaha Digital</h4><div class="course-info"><span>13:50 - 15:30</span><span class="sks-badge">2 SKS</span></div></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="day-group">
-                <h3 class="day-title reveal">RABU</h3>
-                <div class="schedule-grid">
-                    <div class="course-card reveal">
-                        <h4>Basis Data</h4>
-                        <div class="course-info">
-                            <span>10:30 - 13:00</span>
-                            <span class="sks-badge">3 SKS</span>
-                        </div>
-                    </div>
-                    <div class="course-card reveal" style="transition-delay: 100ms;">
-                        <h4>Wirausaha Digital</h4>
-                        <div class="course-info">
-                            <span>13:50 - 15:30</span>
-                            <span class="sks-badge">2 SKS</span>
-                        </div>
+                <div class="day-group">
+                    <h3 class="day-title reveal">KAMIS</h3>
+                    <div class="schedule-grid">
+                        <div class="course-card reveal"><h4>Struktur Data</h4><div class="course-info"><span>08:00 - 10:30</span><span class="sks-badge">3 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 100ms;"><h4>Pemrograman Web</h4><div class="course-info"><span>10:30 - 13:00</span><span class="sks-badge">3 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 200ms;"><h4>Kecerdasan Buatan</h4><div class="course-info"><span>13:00 - 15:30</span><span class="sks-badge">3 SKS</span></div></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="day-group">
-                <h3 class="day-title reveal">KAMIS</h3>
-                <div class="schedule-grid">
-                    <div class="course-card reveal">
-                        <h4>Struktur Data</h4>
-                        <div class="course-info">
-                            <span>08:00 - 10:30</span>
-                            <span class="sks-badge">3 SKS</span>
-                        </div>
-                    </div>
-                    <div class="course-card reveal" style="transition-delay: 100ms;">
-                        <h4>Pemrograman Web</h4>
-                        <div class="course-info">
-                            <span>10:30 - 13:00</span>
-                            <span class="sks-badge">3 SKS</span>
-                        </div>
-                    </div>
-                     <div class="course-card reveal" style="transition-delay: 200ms;">
-                        <h4>Kecerdasan Buatan</h4>
-                        <div class="course-info">
-                            <span>13:00 - 15:30</span>
-                            <span class="sks-badge">3 SKS</span>
-                        </div>
+                <div class="day-group">
+                    <h3 class="day-title reveal">JUMAT</h3>
+                    <div class="schedule-grid">
+                        <div class="course-card reveal"><h4>Praktikum Struktur Data</h4><div class="course-info"><span>08:50 - 10:30</span><span class="sks-badge">1 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 100ms;"><h4>Praktikum Basis Data</h4><div class="course-info"><span>10:30 - 12:10</span><span class="sks-badge">1 SKS</span></div></div>
+                        <div class="course-card reveal" style="transition-delay: 200ms;"><h4>Praktikum Grafika Komputer</h4><div class="course-info"><span>13:50 - 15:30</span><span class="sks-badge">1 SKS</span></div></div>
                     </div>
                 </div>
-            </div>
+            </section>
+            
+            <section id="artikel" class="section container">
+                <h2 class="section-title reveal"><span>Artikel &</span> Tugas</h2>
+                <div class="card-grid-container">
+                    <a data-target="article-1" class="contact-card reveal article-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4M10.5 16.5H9.5V13.5H10.5V16.5M14.5 16.5H11.5V15.5H14.5V16.5M14.5 14.5H11.5V13.5H14.5V14.5M18 12H6V10H18V12Z"></path></svg>
+                        <span>Mengenal Teknologi Web</span>
+                    </a>
+                    <a data-target="article-2" class="contact-card reveal article-link" style="transition-delay: 100ms;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V11H4V13H16V15.59L19.59,12Z"></path></svg>
+                        <span>Cara Membuat Website</span>
+                    </a>
+                    <a data-target="article-3" class="contact-card reveal article-link" style="transition-delay: 200ms;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,7C10.9,7 10,7.9 10,9C10,10.1 10.9,11 12,11C13.1,11 14,10.1 14,9C14,7.9 13.1,7 12,7M12,13C9.3,13 7,14.3 7,16V17H17V16C17,14.3 14.7,13 12,13Z"></path></svg>
+                        <span>Kesan & Pesan</span>
+                    </a>
+                </div>
+            </section>
 
-        </section>
-
-        <section id="contact" class="section container">
-            <h2 class="section-title reveal">Hubungi <span>Saya</span></h2>
-            <div class="contact-grid">
-                <a href="https://instagram.com/aryadefa1166" target="_blank" class="contact-card reveal">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
-                    </svg>
-                    <span>aryadefa1166</span>
-                </a>
-                <a href="mailto:aryadefa1166@gmail.com" class="contact-card reveal" style="transition-delay: 100ms;">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                    <span>aryadefa1166@gmail.com</span>
-                </a>
-            </div>
-        </section>
+            <section id="contact" class="section container">
+                <h2 class="section-title reveal"><span>Hubungi</span> Saya</h2>
+                <div class="card-grid-container">
+                    <a href="https://instagram.com/aryadefa1166" target="_blank" class="contact-card reveal">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+                        <span>aryadefa1166</span>
+                    </a>
+                    <a href="mailto:aryadefa1166@gmail.com" class="contact-card reveal" style="transition-delay: 100ms;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>aryadefa1166@gmail.com</span>
+                    </a>
+                </div>
+            </section>
         </main>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="logo reveal">Aryadefazen</div> <p class="footer-text reveal">© 2025 Muhammad Aryadefa. Hak cipta dilindungi.</p> </div>
-    </footer>
+        
+        <footer class="footer">
+            <div class="container">
+                <div class="logo reveal">Aryadefazen</div>
+                <p class="footer-text reveal">© 2025 Muhammad Aryadefa. Hak cipta dilindungi.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div id="article-viewer" style="display: none;">
+        <div id="article-1" class="article-page">
+            <div class="article-container">
+                <a href="#" class="back-button">← Kembali ke Halaman Utama</a>
+                <h1>Mengenal HTML, CSS & JavaScript</h1>
+                <p>Selamat datang di dunia pemrograman web! Di sini kita akan membahas tiga pilar utama yang membangun hampir semua website modern yang kamu lihat hari ini. Mari kita mulai dari yang paling dasar.</p>
+                <h3>1. HTML (HyperText Markup Language)</h3>
+                <p>HTML adalah kerangka atau fondasi dari sebuah website. Anggap saja seperti tulang-belulang pada tubuh manusia. HTML menggunakan "tag" untuk menstrukturkan konten, seperti mendefinisikan mana yang menjadi judul, paragraf, gambar, atau link.</p>
+                <h3>2. CSS (Cascading Style Sheets)</h3>
+                <p>Jika HTML adalah kerangka, maka CSS adalah kulit, pakaian, dan riasannya. CSS digunakan untuk mendesain dan mempercantik tampilan HTML. Dengan CSS, kita bisa mengatur warna, font, tata letak, animasi, dan semua hal yang berhubungan dengan visual.</p>
+                <h3>3. JavaScript</h3>
+                <p>JavaScript (JS) adalah otak dan ototnya. JS adalah bahasa pemrograman yang membuat website menjadi interaktif. Ketika kamu mengklik tombol, melihat slideshow gambar, atau mengisi formulir, itu semua adalah hasil kerja dari JavaScript.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_GTMOmRrqkU?si=IXl-_AewI0lRnoID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="article-2" class="article-page">
+            <div class="article-container">
+                <a href="#" class="back-button">← Kembali ke Halaman Utama</a>
+                <h1>Tata Cara Membuat Website Sederhana</h1>
+                <p>Membuat website sederhana bisa dibagi menjadi beberapa langkah utama, mulai dari perencanaan hingga peluncuran.</p>
+                <h3>1. Perencanaan</h3>
+                <p>Tentukan tujuan websitemu. Apakah ini portofolio, blog, atau toko online? Buat sketsa kasar (wireframe) di kertas untuk merencanakan tata letak konten di setiap halaman.</p>
+                <h3>2. Menulis Kode HTML</h3>
+                <p>Buat struktur dasar kontenmu menggunakan HTML. Buat file `index.html` dan mulailah menulis tag untuk judul, paragraf, gambar, dan navigasi sesuai dengan rencanamu.</p>
+                <h3>3. Mendesain dengan CSS</h3>
+                <p>Setelah kerangka jadi, saatnya mempercantik dengan CSS. Buat aturan gaya untuk warna, font, spasi, dan layout. Pada tahap ini, kamu akan banyak menggunakan Flexbox atau Grid untuk menata letak elemen.</p>
+                <h3>4. Menambah Interaktivitas dengan JavaScript (Opsional)</h3>
+                <p>Jika kamu ingin websitemu lebih dinamis, tambahkan JavaScript. Kamu bisa membuat animasi, galeri foto interaktif, atau validasi formulir.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/prLv5uwUtuY?si=7Lb0GZtYhSchDb2f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="article-3" class="article-page">
+            <div class="article-container">
+                <a href="#" class="back-button">← Kembali ke Halaman Utama</a>
+                <h1>Kesan dan Pesan Belajar Pemrograman Web</h1>
+                <p>Perjalanan belajar pemrograman web adalah pengalaman yang sangat berharga dan membuka mata. Awalnya mungkin terasa menakutkan melihat begitu banyak kode dan teknologi yang harus dipelajari.</p>
+                <h3>Kesan</h3>
+                <p>Kesan pertama saya adalah betapa logis dan terstrukturnya dunia web. Setiap baris kode memiliki tujuan yang jelas, dan melihat bagaimana gabungan dari HTML, CSS, dan JavaScript bisa menciptakan sesuatu yang interaktif dan indah adalah sebuah kepuasan tersendiri. Proses *debugging* atau mencari kesalahan mengajarkan saya tentang kesabaran dan cara berpikir analitis.</p>
+                <h3>Pesan</h3>
+                <p>Bagi teman-teman yang baru memulai, pesan saya adalah jangan takut untuk mencoba dan jangan takut salah. Kesalahan adalah bagian dari proses belajar. Mulailah dari proyek kecil, seperti website profil ini, dan terus kembangkan. Manfaatkan sumber daya online seperti dokumentasi, tutorial video, dan forum. Yang terpenting, nikmati proses kreatif dalam mengubah baris-baris kode menjadi sebuah karya digital.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll('.reveal');
-
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); 
-                    }
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+            }, { threshold: 0.1 });
+            reveals.forEach(reveal => { observer.observe(reveal); });
+            const mainContent = document.getElementById('main-content');
+            const articleViewer = document.getElementById('article-viewer');
+            const articleLinks = document.querySelectorAll('.article-link');
+            const backButtons = document.querySelectorAll('.back-button');
+            const articlePages = document.querySelectorAll('.article-page');
+            articleLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    mainContent.style.display = 'none';
+                    articleViewer.style.display = 'block';
+                    articlePages.forEach(page => { page.style.display = 'none'; });
+                    document.getElementById(targetId).style.display = 'block';
+                    window.scrollTo(0, 0);
                 });
-            }, {
-                threshold: 0.1 
             });
-
-            reveals.forEach(reveal => {
-                observer.observe(reveal);
+            backButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    mainContent.style.display = 'block';
+                    articleViewer.style.display = 'none';
+                });
             });
         });
     </script>
-    </body>
+</body>
 </html>
